@@ -1,6 +1,7 @@
 # @vslutov/redux-flux
 
 [![Build Status](https://travis-ci.org/vslutov/redux-flux.svg?branch=master)](https://travis-ci.org/vslutov/redux-flux)
+[![npm version](https://badge.fury.io/js/%40vslutov%2Fredux-flux.svg)](https://badge.fury.io/js/%40vslutov%2Fredux-flux)
 
 Redux utils for remove boilerplate
 
