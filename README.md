@@ -1,10 +1,19 @@
-# redux-flux
+# @vslutov/redux-flux
+
+[![Build Status](https://travis-ci.org/vslutov/redux-flux.svg?branch=master)](https://travis-ci.org/vslutov/redux-flux)
 
 Redux utils for remove boilerplate
+
+Install:
+```sh
+npm install @vslutov/redux-flux
+```
 
 Code example:
 
 ```js
+import { prepareFlux, createMapStateToProps } from '@vslutov/redux-flux'
+
 const { setActions, themePropertiesReducer, defaultSelectors } = prepareFlux({
   prefix: 'THEME_PROPERTIES',
   rootSelector: state => state.themeProperties,

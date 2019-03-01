@@ -88,7 +88,7 @@ test('selector', async t => {
   t.is(t.context.rootSelector.lastArg, initState)
 })
 
-test('full path', async t => {
+test('integrity', async t => {
   const { setActions, themePropertiesReducer, defaultSelectors } = prepareFlux({
     prefix: 'THEME_PROPERTIES',
     rootSelector: state => state.themeProperties,
