@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "10"
+  - "9"
+  - "8"
+  - "7"
+
+script:
+  - npm run build
+  - npm test
+
+jobs:
+  include:
+    - stage: npm release
+      node_js: "stable"
+      script:
+        - npm run build
+        - echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        api_key: $NPM_API_KEY
+        on:
+          tags: true

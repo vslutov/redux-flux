@@ -1,0 +1,59 @@
+{
+  "name": "redux-flux",
+  "version": "0.1.0",
+  "description": "Redux utils to remove boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && ava",
+    "build": "rollup src/index.js --file index.js --format cjs",
+    "cz": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vslutov/redux-flux.git"
+  },
+  "keywords": [
+    "redux",
+    "flux",
+    "utils",
+    "actions",
+    "redux-actions"
+  ],
+  "author": "Vladimir Lutov <vs@lutov.net> (https://lutov.net)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/vslutov/redux-flux/issues"
+  },
+  "homepage": "https://github.com/vslutov/redux-flux#readme",
+  "devDependencies": {
+    "@babel/register": "^7.0.0",
+    "ava": "^1.2.1",
+    "commitizen": "^3.0.7",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.3.1",
+    "rollup": "^1.4.0",
+    "sinon": "^7.2.5",
+    "standard": "^12.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "dependencies": {
+    "ramda": "^0.26.1",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.4"
+  },
+  "ava": {
+    "require": [
+      "./test/_register.js"
+    ]
+  }
+}
