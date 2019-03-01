@@ -1,3 +1,5 @@
+.travis.yml
+test
 node_modules
 /index.js
 /.nyc_output
