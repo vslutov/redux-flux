@@ -1,7 +1,9 @@
 # @vslutov/redux-flux
 
 [![Build Status](https://travis-ci.org/vslutov/redux-flux.svg?branch=master)](https://travis-ci.org/vslutov/redux-flux)
-[![npm version](https://badge.fury.io/js/%40vslutov%2Fredux-flux.svg)](https://badge.fury.io/js/%40vslutov%2Fredux-flux) [![Greenkeeper badge](https://badges.greenkeeper.io/vslutov/redux-flux.svg)](https://greenkeeper.io/)
+[![npm version](https://badge.fury.io/js/%40vslutov%2Fredux-flux.svg)](https://badge.fury.io/js/%40vslutov%2Fredux-flux)
+[![Greenkeeper badge](https://badges.greenkeeper.io/vslutov/redux-flux.svg)](https://greenkeeper.io/)
+[![Coverage Status](https://coveralls.io/repos/github/vslutov/redux-flux/badge.svg?branch=master)](https://coveralls.io/github/vslutov/redux-flux?branch=master)
 
 Redux utils for remove boilerplate
 
