@@ -1,7 +1,8 @@
-.travis.yml
-test
 node_modules
-/index.js
 /.nyc_output
+/lib
 .*.swp
 *.tgz
+/.travis.yml
+/rollup.config.js
+/test

@@ -2,7 +2,7 @@ import test from 'ava'
 import sinon from 'sinon'
 import { createStore, combineReducers } from 'redux'
 
-import { createMapStateToProps, prepareFlux } from '../index'
+import { createMapStateToProps, prepareFlux } from '../src'
 
 test('createMapStateToProps', async t => {
   const selectors = {
