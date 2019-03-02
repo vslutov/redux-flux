@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Redux utils to remove boilerplate",
   "main": "lib/index.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "standard && nyc ava",
     "build": "rollup -c",
