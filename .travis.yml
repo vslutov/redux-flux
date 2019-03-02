@@ -5,12 +5,13 @@ node_js:
   - "8"
   - "7"
 
-script:
-  - npm run build
-  - npm test
-
 jobs:
   include:
+    - stage: cover
+      node_js: "stable"
+      script:
+        - npm test
+        - npm run cover
     - stage: npm release
       node_js: "stable"
       script:
