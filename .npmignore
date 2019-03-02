@@ -1,8 +1,5 @@
-node_modules
-/.nyc_output
-/lib
-.*.swp
+.*
 *.tgz
-/.travis.yml
 /rollup.config.js
+*.md
 /test
