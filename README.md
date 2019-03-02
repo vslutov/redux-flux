@@ -4,6 +4,7 @@
 [![npm version](https://badge.fury.io/js/%40vslutov%2Fredux-flux.svg)](https://badge.fury.io/js/%40vslutov%2Fredux-flux)
 [![Greenkeeper badge](https://badges.greenkeeper.io/vslutov/redux-flux.svg)](https://greenkeeper.io/)
 [![Coverage Status](https://coveralls.io/repos/github/vslutov/redux-flux/badge.svg?branch=master)](https://coveralls.io/github/vslutov/redux-flux?branch=master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Redux utils for remove boilerplate
 
