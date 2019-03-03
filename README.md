@@ -6,14 +6,14 @@
 [![Coverage Status](https://coveralls.io/repos/github/vslutov/redux-flux/badge.svg?branch=master)](https://coveralls.io/github/vslutov/redux-flux?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Redux utils for remove boilerplate
+Redux utils to remove bilerplate code
 
-Install:
+## Install
 ```sh
 npm install @vslutov/redux-flux
 ```
 
-Code example:
+## Code example
 
 ```js
 import { createFlux, createMapStateToProps } from '@vslutov/redux-flux'
