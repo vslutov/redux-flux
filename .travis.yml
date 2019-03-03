@@ -10,7 +10,6 @@ jobs:
     - stage: cover
       node_js: "stable"
       script:
-        - npm test
         - npm run cover
     - stage: npm release
       node_js: "stable"
