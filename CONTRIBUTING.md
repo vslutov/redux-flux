@@ -13,7 +13,7 @@ Happy Contributing :slightly_smiling_face:
 $ git clone https://github.com/<YOUR-GITHUB-USERNAME>/redux-flux.git
 
 # navigate to the project's directory and install all the relevant dev-dependencies
-$ cd redux-flux && NODE_ENV=development npm ci
+$ cd redux-flux && npm install
 
 # include all the latest changes from the remote repository
 $ git remote add upstream https://github.com/vslutov/redux-flux.git
