@@ -1,4 +1,5 @@
 const fs = require('fs')
+const { spawn } = require('child_process')
 
 const gulp = require('gulp')
 const bump = require('gulp-bump')
@@ -14,6 +15,28 @@ gulp.task('clean', () =>
 )
 
 // Bump
+
+gulp.task('install:production', () =>
+  spawn('npm', ['install', '--producion'], {
+    stdio: 'inherit'
+  })
+)
+
+gulp.task('install:development', () =>
+  spawn('npm', ['install'], {
+    stdio: 'inherit'
+  })
+)
+
+gulp.task('bump:shrinkwrap:del', () =>
+  del(['npm-shrinkwrap.json', 'package-lock.json', 'node_modules'], { force: true })
+)
+
+gulp.task('bump:shrinkwrap:create', () =>
+  spawn('npm', ['shrinkwrap'], {
+    stdio: 'inherit'
+  })
+)
 
 gulp.task('bump:package', () => {
   /// It bumps revisions
@@ -49,9 +72,9 @@ const getBumpMessage = () => {
   return `bump version to v${packageJson.version}`
 }
 
-gulp.task('bump:git:commit', () =>
-  gulp.src('./package.json')
+gulp.task('bump:git-commit', () =>
+  gulp.src(['./package.json', './npm-shrinkwrap.json'])
     .pipe(git.commit(getBumpMessage()))
 )
 
-gulp.task('bump', gulp.series('bump:package', 'bump:git:commit'))
+gulp.task('bump', gulp.series('bump:package', 'bump:shrinkwrap:del', 'install:production', 'bump:shrinkwrap:create', 'bump:git-commit', 'install:development'))
