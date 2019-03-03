@@ -1,6 +1,7 @@
 import { createAction, handleAction } from 'redux-actions'
-import { mapObjIndexed, compose, fromPairs, over, lensIndex, concat, toPairs, map } from 'ramda'
+import { mapObjIndexed, compose, fromPairs, over, lensIndex, concat, toPairs, map, path, last } from 'ramda'
 import { combineReducers } from 'redux'
+import { createSelector } from 'reselect'
 
 const camelToSnake = (string) => (string
   .replace(/([^A-Z])([A-Z])/g, '$1_$2')
@@ -16,8 +17,29 @@ const upperFirst = string => string.charAt(0).toUpperCase() + string.slice(1)
 
 const setReducer = (state, { payload }) => payload
 
+const createDefaultSelectors = ({ rootSelector, prefix, defaultValues }) => {
+  if (rootSelector != null) {
+    return mapObjIndexed(
+      (_, name) => createSelector(rootSelector, root => root[name]),
+      defaultValues
+    )
+  }
+
+  const selectorPath = prefix.split('/').map(snakeToCamel)
+
+  return mapObjIndexed(
+    (_, name) => path(selectorPath.concat([name])),
+    defaultValues
+  )
+}
+
 export const createFlux = ({ prefix, rootSelector, defaultValues }) => {
-  const defaultSelectors = mapObjIndexed((_, name) => (state) => rootSelector(state)[name], defaultValues)
+  const defaultSelectors = createDefaultSelectors({
+    rootSelector,
+    prefix,
+    defaultValues
+  })
+
   const actions = mapObjIndexed((_, name) => createAction(prefix + '/' + camelToSnake(name) + '/SET'), defaultValues)
 
   const reducer = combineReducers(mapObjIndexed((defaultState, name) => (
@@ -33,10 +55,12 @@ export const createFlux = ({ prefix, rootSelector, defaultValues }) => {
     toPairs
   )(actions)
 
+  const reducerName = snakeToCamel(last(prefix.split('/'))) + 'Reducer'
+
   return {
     setActions,
     defaultSelectors,
-    [snakeToCamel(prefix) + 'Reducer']: reducer
+    [reducerName]: reducer
   }
 }
 

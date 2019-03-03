@@ -72,7 +72,7 @@ test('reducer', async t => {
   })
 })
 
-test('selector', async t => {
+test('manual root selector', async t => {
   const { defaultSelectors } = t.context.flux
 
   const initState = {
@@ -88,10 +88,29 @@ test('selector', async t => {
   t.is(t.context.rootSelector.lastArg, initState)
 })
 
+test('auto root selector', async t => {
+  const { defaultSelectors, themePropertiesReducer } = createFlux({
+    prefix: 'THEME/THEME_PROPERTIES',
+    defaultValues: {
+      fontSize: 8,
+      color: 'blue'
+    }
+  })
+
+  const rootReducer = combineReducers({
+    theme: combineReducers({
+      themeProperties: themePropertiesReducer
+    })
+  })
+
+  const initState = rootReducer(undefined, { type: '@@INIT' })
+
+  t.is(defaultSelectors.fontSize(initState), 8)
+})
+
 test('integrity', async t => {
   const { setActions, themePropertiesReducer, defaultSelectors } = createFlux({
     prefix: 'THEME_PROPERTIES',
-    rootSelector: state => state.themeProperties,
     defaultValues: {
       fontSize: 8,
       color: 'blue'

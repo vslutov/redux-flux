@@ -21,7 +21,6 @@ import { createStore, combineReducers } from 'redux'
 
 const { setActions, themePropertiesReducer, defaultSelectors } = createFlux({
   prefix: 'THEME_PROPERTIES',
-  rootSelector: state => state.themeProperties,
   defaultValues: {
     fontSize: 8,
     color: 'blue'

@@ -65,7 +65,8 @@
   "dependencies": {
     "ramda": "^0.26.1",
     "redux": "^4.0.1",
-    "redux-actions": "^2.6.4"
+    "redux-actions": "^2.6.4",
+    "reselect": "^4.0.0"
   },
   "ava": {
     "require": [
