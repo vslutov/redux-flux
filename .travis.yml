@@ -13,9 +13,8 @@ jobs:
         - npm run cover
     - stage: npm release
       node_js: "stable"
-      script:
+      before_deploy:
         - npm run build
-        - echo "Deploying to npm ..."
       deploy:
         provider: npm
         api_key: $NPM_API_KEY
