@@ -10,7 +10,7 @@ const del = require('del')
 // Clean
 
 gulp.task('clean', () =>
-  del(['build'], { force: true })
+  del(['lib', '.nyc_output'], { force: true })
 )
 
 // Bump
