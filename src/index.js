@@ -16,7 +16,7 @@ const upperFirst = string => string.charAt(0).toUpperCase() + string.slice(1)
 
 const setReducer = (state, { payload }) => payload
 
-export const prepareFlux = ({ prefix, rootSelector, defaultValues }) => {
+export const createFlux = ({ prefix, rootSelector, defaultValues }) => {
   const defaultSelectors = mapObjIndexed((_, name) => (state) => rootSelector(state)[name], defaultValues)
   const actions = mapObjIndexed((_, name) => createAction(prefix + '/' + camelToSnake(name) + '/SET'), defaultValues)
 
