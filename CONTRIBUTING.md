@@ -71,7 +71,7 @@ Being an open-source contributor is awesome :bowtie: but with great awesomeness 
 
 -   While making a PR, please follow the [pull_request_template.md](.github/pull_request_template.md) guidelines and mention the issue you are solving, like so - `Fixed #2`.
 
--   Your PR must pass the [Travis CI][2], [Codacy][3] checks for it to be considered getting merged.
+-   Your PR must pass the [Travis CI][2] checks for it to be considered getting merged.
 
 -   Maintain a healthy environment and don't indulge in any kind of activities that's against the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
@@ -82,5 +82,3 @@ Being an open-source contributor is awesome :bowtie: but with great awesomeness 
 [1]: https://standardjs.com/
 
 [2]: https://travis-ci.org/
-
-[3]: https://www.codacy.com/
