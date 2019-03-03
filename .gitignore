@@ -1,5 +1,7 @@
 node_modules
 /.nyc_output
 /lib
+/npm-shrinkwrap.json
+/package-lock.json
 .*.swp
 *.tgz

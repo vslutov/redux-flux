@@ -13,11 +13,8 @@ jobs:
         - npm run cover
     - stage: npm release
       node_js: "stable"
-      before_deploy:
-        - npm run build
       deploy:
         provider: npm
-        skip_cleanup: true
         api_key: $NPM_API_KEY
         email: vs@lutov.net
         on:
