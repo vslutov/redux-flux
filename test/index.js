@@ -2,7 +2,7 @@ import test from 'ava'
 import sinon from 'sinon'
 import { createStore, combineReducers } from 'redux'
 
-import { createMapStateToProps, prepareFlux } from '../src'
+import { createMapStateToProps, createFlux } from '../src'
 
 test('createMapStateToProps', async t => {
   const selectors = {
@@ -28,7 +28,7 @@ test.before(t => {
     fontSize: 'fakeFontSize',
     color: 'fakeColor'
   })
-  t.context.flux = prepareFlux({
+  t.context.flux = createFlux({
     prefix: 'THEME_PROPERTIES',
     rootSelector: t.context.rootSelector,
     defaultValues: {
@@ -89,7 +89,7 @@ test('selector', async t => {
 })
 
 test('integrity', async t => {
-  const { setActions, themePropertiesReducer, defaultSelectors } = prepareFlux({
+  const { setActions, themePropertiesReducer, defaultSelectors } = createFlux({
     prefix: 'THEME_PROPERTIES',
     rootSelector: state => state.themeProperties,
     defaultValues: {
