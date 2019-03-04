@@ -11,8 +11,7 @@
     "cz": "git-cz",
     "cover": "nyc ava && nyc report --reporter=text-lcov | coveralls",
     "remark": "remark . .github",
-    "prepublishOnly": "npm install && npm run clean && npm test && npm run build && npm prune --production && npm dedupe && npm shrinkwrap",
-    "postversion": "npm install"
+    "prepublishOnly": "npm install && npm run clean && npm test && npm run build && npm prune --production && npm dedupe && npm shrinkwrap"
   },
   "repository": {
     "type": "git",
