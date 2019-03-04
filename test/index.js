@@ -20,10 +20,10 @@ test('createMapStateToProps', async t => {
   })
 
   t.true(selectors.count.calledOnce)
-  t.is(selectors.count.lastArg, state)
+  t.deepEqual(selectors.count.firstCall.args, [state])
 })
 
-test.before(t => {
+test.beforeEach(t => {
   t.context.rootSelector = sinon.fake.returns({
     fontSize: 'fakeFontSize',
     color: 'fakeColor'
@@ -81,11 +81,11 @@ test('manual root selector', async t => {
 
   t.is(defaultSelectors.fontSize(initState), 'fakeFontSize')
   t.true(t.context.rootSelector.calledOnce)
-  t.is(t.context.rootSelector.lastArg, initState)
+  t.deepEqual(t.context.rootSelector.firstCall.args, [initState])
 
   t.is(defaultSelectors.color(initState), 'fakeColor')
   t.is(t.context.rootSelector.callCount, 2)
-  t.is(t.context.rootSelector.lastArg, initState)
+  t.deepEqual(t.context.rootSelector.firstCall.args, [initState])
 })
 
 test('auto root selector', async t => {
