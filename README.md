@@ -16,7 +16,7 @@ npm install @vslutov/redux-flux
 ## Code example
 
 ```js
-import { createFlux, createMapStateToProps, bindActionCreators } from '@vslutov/redux-flux'
+import { createFlux, applySelectors, bindActionCreators } from '@vslutov/redux-flux'
 import { createStore, combineReducers } from 'redux'
 
 const { setActions, themePropertiesReducer, defaultSelectors } = createFlux({
