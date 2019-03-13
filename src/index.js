@@ -1,14 +1,14 @@
 import { createAction, handleAction } from 'redux-actions'
-import { mapObjIndexed, compose, fromPairs, over, lensIndex, concat, toPairs, map, path, last } from 'ramda'
+import { mapObjIndexed, compose, fromPairs, over, lensIndex, concat, toPairs, map, path, last, curry } from 'ramda'
 import { combineReducers } from 'redux'
 import { createSelector } from 'reselect'
 
-const camelToSnake = (string) => (string
+const camelToSnake = string => (string
   .replace(/([^A-Z])([A-Z])/g, '$1_$2')
   .toUpperCase()
 )
 
-const snakeToCamel = (string) => (string
+const snakeToCamel = string => (string
   .toLowerCase()
   .replace(/_+([^_])/g, ($0, $1) => $1.toUpperCase())
 )
@@ -64,4 +64,16 @@ export const createFlux = ({ prefix, rootSelector, defaultValues }) => {
   }
 }
 
-export const createMapStateToProps = (selectors) => (state) => mapObjIndexed((selector) => selector(state), selectors)
+export const applySelectors = selectors => state => mapObjIndexed((selector) => selector(state), selectors)
+
+// Work with async action creators (Promises)
+export const bindActionCreators = curry((actionCreators, dispatch) => {
+  const promisifyActionCreator = actionCreator => async (...args) => {
+    // Create action from promise or simple action
+    const action = await Promise.resolve(actionCreator(...args))
+
+    dispatch(action)
+  }
+
+  return mapObjIndexed(promisifyActionCreator, actionCreators)
+})

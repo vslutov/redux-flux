@@ -16,7 +16,7 @@ npm install @vslutov/redux-flux
 ## Code example
 
 ```js
-import { createFlux, createMapStateToProps } from '@vslutov/redux-flux'
+import { createFlux, createMapStateToProps, bindActionCreators } from '@vslutov/redux-flux'
 import { createStore, combineReducers } from 'redux'
 
 const { setActions, themePropertiesReducer, defaultSelectors } = createFlux({
@@ -33,10 +33,12 @@ const store = createStore(combineReducers({
 
 t.is(defaultSelectors.fontSize(store.getState()), 8)
 
-store.dispatch(setActions.setFontSize(10))
+const actions = bindActionCreators(setActions, store.dispatch)
+await actions.setFontSize(10)
+
 t.is(defaultSelectors.fontSize(store.getState()), 10)
 
-const prop = createMapStateToProps(defaultSelectors)(store.getState())
+const prop = applySelectors(defaultSelectors)(store.getState())
 t.deepEqual(prop, {
   fontSize: 10,
   color: 'blue'
