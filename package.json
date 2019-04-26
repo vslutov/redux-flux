@@ -1,6 +1,6 @@
 {
   "name": "@vslutov/redux-flux",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Redux utils to remove boilerplate",
   "main": "lib/index.js",
   "module": "src/index.js",
