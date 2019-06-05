@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/vslutov/redux-flux/badge.svg?branch=master)](https://coveralls.io/github/vslutov/redux-flux?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Redux utils to remove bilerplate code
+Redux utils to remove boilerplate code
 
 ## Install
 ```sh
