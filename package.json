@@ -45,7 +45,7 @@
     "rimraf": "^2.6.3",
     "rollup": "^1.14.4",
     "sinon": "^7.2.5",
-    "standard": "^12.0.1"
+    "standard": "^14.1.0"
   },
   "config": {
     "commitizen": {
