@@ -32,20 +32,20 @@
   "homepage": "https://github.com/vslutov/redux-flux#readme",
   "devDependencies": {
     "ava": "^2.0.0",
-    "commitizen": "^3.0.7",
+    "commitizen": "^4.0.0",
     "coveralls": "^3.0.3",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "^3.0.2",
     "esm": "^3.2.15",
-    "husky": "^2.4.0",
+    "husky": "^3.0.0",
     "nyc": "^14.0.0",
     "redux": "^4.0.1",
-    "remark-cli": "^6.0.1",
+    "remark-cli": "^7.0.0",
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
-    "rimraf": "^2.6.3",
     "rollup": "^1.20.3",
+    "rimraf": "^3.0.0",
     "sinon": "^7.2.5",
-    "standard": "^12.0.1"
+    "standard": "^14.1.0"
   },
   "config": {
     "commitizen": {
